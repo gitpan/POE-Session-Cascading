@@ -4,6 +4,7 @@ LICENSE
 MANIFEST			This list of files
 Makefile.PL
 README
+VERSION
 lib/POE/Session/Cascading.pm
 t/MockObject.pm
 t/_internals/creation.t
