@@ -5,7 +5,7 @@ AUTHOR
     Matt Cashner (eek+cpan@eekeek.org)
 
 DATE
-    $Date: 2002/05/12 00:39:19 $
+    $Date: 2002/05/18 03:28:52 $
 
 SYNOPSIS
         POE::Session::Cascading->new(
@@ -95,8 +95,12 @@ METHODS
 
     Instruct the current session to continue chain propgation.
 
+  swap
+        $args{SESSION}->swap($state1, $state2);
+    
+    Reorder the event stack. Swap two states in the stack.
+
 BUGS AND KNOWN ISSUES
-    * Cannot reorder the stack at runtime
     * Cannot register or unregister a stack element at runtime
     * Stack requires outside influence to start (is this actually a
     problem?)

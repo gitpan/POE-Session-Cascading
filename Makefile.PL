@@ -1,5 +1,5 @@
 #!/usr/bin/perl
-# $Id: Makefile.PL,v 1.7 2002/05/18 01:57:07 matt Exp $
+# $Id: Makefile.PL,v 1.8 2002/05/21 01:07:52 matt Exp $
 
 use ExtUtils::MakeMaker;
 use File::Find;
@@ -18,7 +18,7 @@ WriteMakefile
         )
     ),
 
-    VERSION_FROM   => 'VERSION',
+    VERSION_FROM   => 'lib/POE/Session/Cascading.pm',
     dist           => { 'COMPRESS' => 'gzip -9f',
                         'SUFFIX'   => 'gz',
                       },

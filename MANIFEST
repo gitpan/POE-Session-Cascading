@@ -1,14 +1,14 @@
-CHANGES
+ChangeLog
 INSTALL
 LICENSE
 MANIFEST			This list of files
 Makefile.PL
-lib/POE/Session/Cascading.pm
 README
-VERSION
+lib/POE/Session/Cascading.pm
 t/MockObject.pm
 t/_internals/creation.t
 t/_internals/invoke_state.t
+t/_internals/swap.t
 t/api/basic.t
 t/api/data_propogation.t
 t/multiplicity/dual.t
