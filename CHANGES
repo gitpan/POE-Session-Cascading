@@ -1,0 +1,15 @@
+0.03RC1 5/11/2002
+    - move to method based chain control
+    - allow states to pass data to the following states
+    * (yet another private development release - cpan release candidate 1)
+
+0.02  2/19/2002 
+    - Test suite added
+    - Much better error checking
+    - Misc little bugs that cropped up in testing
+    * (yet another private development release)
+
+0.01 02/07/2002
+    - Initial release 
+    * (private development release)
+

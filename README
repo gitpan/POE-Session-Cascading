@@ -1,0 +1,129 @@
+NAME
+    POE::Session::Cascading - Stack-like POE Sessions
+
+AUTHOR
+    Matt Cashner (eek+cpan@eekeek.org)
+
+DATE
+    $Date: 2002/05/12 00:39:19 $
+
+SYNOPSIS
+        POE::Session::Cascading->new(
+            name => 'foo',
+            events => [
+                'state1' => \&state1,
+                'state2 => \&state2,
+            ],
+        );
+
+        sub state1 {
+            my %args = @_;
+            $args{KERNEL}->post('somewhere','somestate');
+            # [ snip ]
+        
+        }
+    
+        sub state2 {
+            my %args = @_;
+            # [ snip ]
+        
+            $args{SESSION}->stop;
+        }
+
+DESCRIPTION
+  INTRODUCTION
+    POE::Session::Cascading provides a stack-like session for POE. Another
+    way of saying it is that a Cascading session is like a big switch
+    statement. In the above example, when "state1" is called in session
+    "foo", &state1 gets executed. When it finishes, "state2" gets fired and
+    &state2 gets executed. If "state2" is called in session "foo", only
+    "state2" will get executed.
+
+  CONTROLLING PROPOGATION
+    Each state can decide whether chain propogation should continue or not.
+    If the state wishes to stop chain propogation, it must call
+    "$args{SESSION}->stop". Otherwise, chain propogation will continue. A
+    state can call "$args{SESSION}->go" to forcibly allow chain propogation.
+    This is largely superflous as this is the default option.
+
+    It would be appropriate to return call "stop", for instance, if the
+    state has determined that further action by this chain is unnecessary or
+    undesirable. The state might launch a different chain and cal "stop" to
+    shutdown the current chain's propogation.
+
+  LAUNCHING A CHAIN
+    To initiate a chain, post a call to the relevant state with the
+    session's name. For instance, to activate the chain in the example
+    above, one would write:
+
+        $poe_kernel->post('foo','state1');
+
+    Arguments passes to POE's post method will be passed directly to the
+    state and those which follow it.
+
+  WRITING A STATE
+    Cascading states are a bit different from the usual POE states, mainly
+    in the argument list. Cascading states are passed a hash, containing
+    three entries. "SESSION" contains a reference to the current session's
+    object. "KERNEL" contains a reference to the POE kernel. "ARGS" contains
+    an array reference of the arguments passed to the state.
+
+    Cascading states can do anything perl can. Cascading states are passed a
+    hash, containing three entries. "SESSION" contains a reference to the
+    current session's object. "KERNEL" contains a reference to the POE
+    kernel. "ARGS" contains an array reference of the arguments passed to
+    the state, including any data passed from the previous state..
+
+METHODS
+  new()
+        POE::Session::Cascading->new(
+            name => 'foo',
+            events => [
+                step1 => \&step1,
+                step2 => \&step2,
+                step3 => \&step3,
+            ]
+        );
+
+  stop
+        $args{SESSION}->stop;
+
+    Instruct the current session to stop chain propogation.
+
+  go
+        $args{SESSION}->go;
+
+    Instruct the current session to continue chain propgation.
+
+BUGS AND KNOWN ISSUES
+    * Cannot reorder the stack at runtime
+    * Cannot register or unregister a stack element at runtime
+    * Stack requires outside influence to start (is this actually a
+    problem?)
+
+LICENSE AND COPYRIGHT
+    Copyright (c) 2002, Matt Cashner
+
+    Permission is hereby granted, free of charge, to any person obtaining a
+    copy of this software and associated documentation files (the
+    "Software"), to deal in the Software without restriction, including
+    without limitation the rights to use, copy, modify, merge, publish,
+    distribute, sublicense, and/or sell copies of the Software, and to
+    permit persons to whom the Software is furnished to do so, subject to
+    the following conditions:
+
+    The above copyright notice and this permission notice shall be included
+    in all copies or substantial portions of the Software.
+
+    THIS SOFTWARE IS PROVIDED BY THE AUTHOR ``AS IS'' AND ANY EXPRESS OR
+    IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+    WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+    DISCLAIMED. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY DIRECT,
+    INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+    (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
+    SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION)
+    HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT,
+    STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN
+    ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+    POSSIBILITY OF SUCH DAMAGE.
+
