@@ -1,4 +1,4 @@
-#$Header: /cvsroot/POE-Session-Cascading/lib/POE/Session/Cascading.pm,v 1.13 2002/05/21 01:54:48 matt Exp $
+#$Header: /cvsroot/POE-Session-Cascading/lib/POE/Session/Cascading.pm,v 1.14 2002/08/18 17:50:17 sungo Exp $
 
 # DOCUMENTATION #{{{
 
@@ -12,7 +12,7 @@ Matt Cashner (eek+cpan@eekeek.org)
 
 =head1 DATE
 
-$Date: 2002/05/21 01:54:48 $
+$Date: 2002/08/18 17:50:17 $
 
 =head1 SYNOPSIS
 
@@ -102,7 +102,7 @@ use Carp;
 use POE::Kernel;
 use vars qw($VERSION %STACK %STACKINFO);
 
-$VERSION = (qw($Revision: 1.13 $))[1];
+$VERSION = (qw($Revision: 1.14 $))[1];
 
 # allow users to set the debug flag. also useful for the test suite
 BEGIN {

@@ -8,6 +8,7 @@ local $SIG{__WARN__} = sub { $@ = shift; die $@; };
 
 BEGIN { 
     use_ok('POE::Session::Cascading');
+    { no strict 'refs'; no warnings; *{ 'POE::Kernel::DESTROY' } = sub { }; }
     use lib qw(t/);
     use MockObject; 
     $POE::Kernel::poe_kernel = MockObject->new();
