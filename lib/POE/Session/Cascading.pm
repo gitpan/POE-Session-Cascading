@@ -1,4 +1,4 @@
-#$Header: /cvsroot/POE-Session-Cascading/POE/Session/Cascading.pm,v 1.9 2002/05/11 23:23:40 matt Exp $
+#$Header: /cvsroot/POE-Session-Cascading/lib/POE/Session/Cascading.pm,v 1.9 2002/05/11 23:23:40 matt Exp $
 
 # DOCUMENTATION #{{{
 

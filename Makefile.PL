@@ -1,5 +1,5 @@
 #!/usr/bin/perl
-# $Id: Makefile.PL,v 1.6 2002/05/12 00:10:00 matt Exp $
+# $Id: Makefile.PL,v 1.7 2002/05/18 01:57:07 matt Exp $
 
 use ExtUtils::MakeMaker;
 use File::Find;
@@ -29,6 +29,5 @@ WriteMakefile
                         'Test::More' => '0',
                         'Carp' => '0',
                       },
-    PMLIBDIRS      => [ 'POE' ],
   );
 

@@ -1,7 +1,9 @@
-0.03RC1 5/11/2002
+0.04 5/17/2002
+    - fix trashy install problems
+
+0.03 5/17/2002
     - move to method based chain control
     - allow states to pass data to the following states
-    * (yet another private development release - cpan release candidate 1)
 
 0.02  2/19/2002 
     - Test suite added
