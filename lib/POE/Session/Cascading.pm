@@ -102,8 +102,6 @@ use Carp;
 use POE::Kernel;
 use vars qw($VERSION %STACK %STACKINFO);
 
-$VERSION = (qw($Revision: 1.14 $))[1];
-
 # allow users to set the debug flag. also useful for the test suite
 BEGIN {
     unless(defined &POE::Session::Cascading::DEBUG) {

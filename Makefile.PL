@@ -18,7 +18,7 @@ WriteMakefile
         )
     ),
 
-    VERSION_FROM   => 'lib/POE/Session/Cascading.pm',
+    VERSION_FROM   => 'VERSION',
     dist           => { 'COMPRESS' => 'gzip -9f',
                         'SUFFIX'   => 'gz',
                       },
