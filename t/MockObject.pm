@@ -1,4 +1,4 @@
-# $Header: /cvsroot/POE-Session-Cascading/t/MockObject.pm,v 1.3 2002/05/12 00:22:50 matt Exp $
+# $Header: /home/sungo/src/sungo/POE-Session-Cascading/t/MockObject.pm,v 1.3 2002/05/12 00:22:50 matt Exp $
 package MockObject;
 
 use warnings;

@@ -1,0 +1,348 @@
+------------------------------------------------------------------------
+r244 | sungo | 2004-05-02 21:08:15 -0400 (Sun, 02 May 2004) | 1 line
+
+add in Changes files and rebuild meta files
+------------------------------------------------------------------------
+r225 | sungo | 2004-04-24 17:03:13 -0400 (Sat, 24 Apr 2004) | 1 line
+
+switch the version numbers all over to use svn kewords. this will probably cause some cpan pain this once but after this all should be well
+------------------------------------------------------------------------
+r224 | sungo | 2004-04-24 16:44:16 -0400 (Sat, 24 Apr 2004) | 1 line
+
+switch everythign back to Makemaker. generate META.yml files. some general polishing of dist files
+------------------------------------------------------------------------
+r222 | sungo | 2004-04-24 13:55:11 -0400 (Sat, 24 Apr 2004) | 2 lines
+
+add keyword interpolation
+
+------------------------------------------------------------------------
+r75 | sungo | 2002-08-19 00:20:02 -0400 (Mon, 19 Aug 2002) | 2 lines
+
+remove the not used changelog
+
+------------------------------------------------------------------------
+r74 | sungo | 2002-08-18 13:50:17 -0400 (Sun, 18 Aug 2002) | 2 lines
+
+forcing new version. worked around poe ->run() warnings in tests
+
+------------------------------------------------------------------------
+r73 | matt | 2002-07-20 22:13:51 -0400 (Sat, 20 Jul 2002) | 2 lines
+
+subvert the poe run() warning from poe v.22 and up.
+
+------------------------------------------------------------------------
+r63 | matt | 2002-05-20 21:56:48 -0400 (Mon, 20 May 2002) | 2 lines
+
+remove VERSION from MANIFEST
+
+------------------------------------------------------------------------
+r62 | matt | 2002-05-20 21:56:12 -0400 (Mon, 20 May 2002) | 2 lines
+
+update changelog for new version magic
+
+------------------------------------------------------------------------
+r61 | matt | 2002-05-20 21:54:48 -0400 (Mon, 20 May 2002) | 2 lines
+
+asserts in swap() to check the validity of the stash and stack coming in. tests for new asserts and previous error conditions that were yet untested
+
+------------------------------------------------------------------------
+r60 | matt | 2002-05-20 21:14:10 -0400 (Mon, 20 May 2002) | 2 lines
+
+add tests to catch the stack pointer bug
+
+------------------------------------------------------------------------
+r59 | matt | 2002-05-20 21:10:28 -0400 (Mon, 20 May 2002) | 2 lines
+
+fix a nasty little bug in swap(). the internal pointers to the states were not getting moved with the coderefs. stack inaccuracy and madness results.
+
+------------------------------------------------------------------------
+r58 | matt | 2002-05-20 21:07:52 -0400 (Mon, 20 May 2002) | 2 lines
+
+get version from the pm not VERSION
+
+------------------------------------------------------------------------
+r57 | matt | 2002-05-20 08:57:47 -0400 (Mon, 20 May 2002) | 2 lines
+
+pulling version from the pm
+
+------------------------------------------------------------------------
+r56 | matt | 2002-05-17 23:32:45 -0400 (Fri, 17 May 2002) | 2 lines
+
+update MANIFEST for the changelog
+
+------------------------------------------------------------------------
+r55 | matt | 2002-05-17 23:30:44 -0400 (Fri, 17 May 2002) | 2 lines
+
+update changelog for last minute twiddly bits
+
+------------------------------------------------------------------------
+r54 | matt | 2002-05-17 23:28:52 -0400 (Fri, 17 May 2002) | 2 lines
+
+update readme for latest docs
+
+------------------------------------------------------------------------
+r53 | matt | 2002-05-17 23:28:00 -0400 (Fri, 17 May 2002) | 2 lines
+
+remove stack reordering bug from list
+
+------------------------------------------------------------------------
+r52 | matt | 2002-05-17 23:26:27 -0400 (Fri, 17 May 2002) | 2 lines
+
+update version for prerelease
+
+------------------------------------------------------------------------
+r51 | matt | 2002-05-17 23:26:10 -0400 (Fri, 17 May 2002) | 2 lines
+
+update changelog for latest changes
+
+------------------------------------------------------------------------
+r50 | matt | 2002-05-17 23:22:37 -0400 (Fri, 17 May 2002) | 2 lines
+
+add event swapping via swap() and tests
+
+------------------------------------------------------------------------
+r49 | matt | 2002-05-17 22:44:41 -0400 (Fri, 17 May 2002) | 2 lines
+
+remove CHANGES and add ChangeLog now that ive found cvs2cl
+
+------------------------------------------------------------------------
+r48 | matt | 2002-05-17 22:01:57 -0400 (Fri, 17 May 2002) | 2 lines
+
+move module tree around for sanity
+
+------------------------------------------------------------------------
+r47 | matt | 2002-05-17 21:57:07 -0400 (Fri, 17 May 2002) | 2 lines
+
+drop retarded install problems
+
+------------------------------------------------------------------------
+r46 | matt | 2002-05-17 21:24:54 -0400 (Fri, 17 May 2002) | 2 lines
+
+note cpan release
+
+------------------------------------------------------------------------
+r45 | matt | 2002-05-11 20:39:19 -0400 (Sat, 11 May 2002) | 2 lines
+
+update the readme
+
+------------------------------------------------------------------------
+r44 | matt | 2002-05-11 20:25:44 -0400 (Sat, 11 May 2002) | 2 lines
+
+update changes and version for new release
+
+------------------------------------------------------------------------
+r43 | matt | 2002-05-11 20:23:25 -0400 (Sat, 11 May 2002) | 2 lines
+
+add new tests to manifest
+
+------------------------------------------------------------------------
+r42 | matt | 2002-05-11 20:22:50 -0400 (Sat, 11 May 2002) | 2 lines
+
+add data_propogation tests. put MockObject in its right place again
+
+------------------------------------------------------------------------
+r41 | matt | 2002-05-11 20:11:14 -0400 (Sat, 11 May 2002) | 2 lines
+
+new manifest
+
+------------------------------------------------------------------------
+r40 | matt | 2002-05-11 20:10:00 -0400 (Sat, 11 May 2002) | 2 lines
+
+add recursive directory based testing. reorganize test suite
+
+------------------------------------------------------------------------
+r39 | matt | 2002-05-11 19:26:06 -0400 (Sat, 11 May 2002) | 2 lines
+
+document the state order for this very confusing test
+
+------------------------------------------------------------------------
+r38 | matt | 2002-05-11 19:23:42 -0400 (Sat, 11 May 2002) | 2 lines
+
+drop the return constants. move to method calls. add yet untested code for data propogation.
+
+------------------------------------------------------------------------
+r37 | matt | 2002-02-19 17:04:40 -0500 (Tue, 19 Feb 2002) | 2 lines
+
+documentation update
+
+------------------------------------------------------------------------
+r36 | matt | 2002-02-19 17:02:01 -0500 (Tue, 19 Feb 2002) | 2 lines
+
+update changlog for 0.02
+
+------------------------------------------------------------------------
+r35 | matt | 2002-02-19 16:59:05 -0500 (Tue, 19 Feb 2002) | 2 lines
+
+inc the version for release
+
+------------------------------------------------------------------------
+r34 | matt | 2002-02-19 16:56:29 -0500 (Tue, 19 Feb 2002) | 2 lines
+
+fix0r the test suite
+
+------------------------------------------------------------------------
+r33 | matt | 2002-02-19 16:30:49 -0500 (Tue, 19 Feb 2002) | 2 lines
+
+_stop test
+
+------------------------------------------------------------------------
+r32 | matt | 2002-02-19 16:27:30 -0500 (Tue, 19 Feb 2002) | 2 lines
+
+multiple session interaction test
+
+------------------------------------------------------------------------
+r31 | matt | 2002-02-19 15:36:05 -0500 (Tue, 19 Feb 2002) | 2 lines
+
+one last test
+
+------------------------------------------------------------------------
+r30 | matt | 2002-02-19 14:02:31 -0500 (Tue, 19 Feb 2002) | 2 lines
+
+simple propogation tests
+
+------------------------------------------------------------------------
+r29 | matt | 2002-02-19 12:13:49 -0500 (Tue, 19 Feb 2002) | 2 lines
+
+more tests
+
+------------------------------------------------------------------------
+r28 | matt | 2002-02-18 22:23:23 -0500 (Mon, 18 Feb 2002) | 2 lines
+
+more tests
+
+------------------------------------------------------------------------
+r27 | matt | 2002-02-18 21:32:35 -0500 (Mon, 18 Feb 2002) | 2 lines
+
+rename ping to _ping to make it a little less likely to have a namespace collision
+
+------------------------------------------------------------------------
+r26 | matt | 2002-02-18 20:58:06 -0500 (Mon, 18 Feb 2002) | 2 lines
+
+add MockObject for kernel api catching
+
+------------------------------------------------------------------------
+r25 | matt | 2002-02-18 11:59:18 -0500 (Mon, 18 Feb 2002) | 2 lines
+
+beginnings of more tests
+
+------------------------------------------------------------------------
+r24 | matt | 2002-02-11 11:16:00 -0500 (Mon, 11 Feb 2002) | 2 lines
+
+add prototypes to the constants. add a BEGIN block to allow user-setting of DEBUG. add assert() and add some asserts. the testing continues
+
+------------------------------------------------------------------------
+r23 | matt | 2002-02-11 11:14:37 -0500 (Mon, 11 Feb 2002) | 2 lines
+
+remove the Carp::assert req. ive horked the code i want
+
+------------------------------------------------------------------------
+r22 | matt | 2002-02-10 17:54:54 -0500 (Sun, 10 Feb 2002) | 2 lines
+
+add Carp::Assert to prereqs
+
+------------------------------------------------------------------------
+r21 | matt | 2002-02-10 17:54:31 -0500 (Sun, 10 Feb 2002) | 2 lines
+
+move the odd args test up to someplace more sensible
+
+------------------------------------------------------------------------
+r20 | matt | 2002-02-09 23:39:45 -0500 (Sat, 09 Feb 2002) | 2 lines
+
+more error checking
+
+------------------------------------------------------------------------
+r19 | matt | 2002-02-09 23:39:28 -0500 (Sat, 09 Feb 2002) | 2 lines
+
+more tests for object creation
+
+------------------------------------------------------------------------
+r18 | matt | 2002-02-09 14:24:30 -0500 (Sat, 09 Feb 2002) | 2 lines
+
+more  error checking. DESTROY to remove stack info from memory
+
+------------------------------------------------------------------------
+r17 | matt | 2002-02-09 14:24:30 -0500 (Sat, 09 Feb 2002) | 2 lines
+
+mas tests
+
+------------------------------------------------------------------------
+r16 | matt | 2002-02-09 13:43:37 -0500 (Sat, 09 Feb 2002) | 2 lines
+
+up the version and document the recent changes
+
+------------------------------------------------------------------------
+r15 | matt | 2002-02-09 10:21:19 -0500 (Sat, 09 Feb 2002) | 2 lines
+
+beginnings of a real test suite
+
+------------------------------------------------------------------------
+r14 | matt | 2002-02-09 10:18:07 -0500 (Sat, 09 Feb 2002) | 2 lines
+
+add new tests
+
+------------------------------------------------------------------------
+r13 | matt | 2002-02-09 10:16:18 -0500 (Sat, 09 Feb 2002) | 2 lines
+
+require test::more
+
+------------------------------------------------------------------------
+r12 | matt | 2002-02-07 21:04:27 -0500 (Thu, 07 Feb 2002) | 2 lines
+
+not needed anymore
+
+------------------------------------------------------------------------
+r11 | matt | 2002-02-07 16:39:32 -0500 (Thu, 07 Feb 2002) | 2 lines
+
+move state1 over to new constant
+
+------------------------------------------------------------------------
+r10 | matt | 2002-02-07 16:38:04 -0500 (Thu, 07 Feb 2002) | 2 lines
+
+add files to make this distribution work
+
+------------------------------------------------------------------------
+r9 | matt | 2002-02-07 15:52:16 -0500 (Thu, 07 Feb 2002) | 2 lines
+
+add 0.01 to the changes file
+
+------------------------------------------------------------------------
+r8 | matt | 2002-02-07 15:50:06 -0500 (Thu, 07 Feb 2002) | 2 lines
+
+branedump the modules docs into the readme
+
+------------------------------------------------------------------------
+r7 | matt | 2002-02-07 15:49:49 -0500 (Thu, 07 Feb 2002) | 2 lines
+
+add install directions
+
+------------------------------------------------------------------------
+r6 | matt | 2002-02-07 15:45:13 -0500 (Thu, 07 Feb 2002) | 2 lines
+
+more docs. patch to pass event arguments through to the states
+
+------------------------------------------------------------------------
+r5 | matt | 2002-02-07 13:56:36 -0500 (Thu, 07 Feb 2002) | 2 lines
+
+more docs
+
+------------------------------------------------------------------------
+r4 | matt | 2002-02-07 12:21:27 -0500 (Thu, 07 Feb 2002) | 2 lines
+
+start of docs. small api change (changed CSC_GO to CSC_OK)
+
+------------------------------------------------------------------------
+r3 | matt | 2002-02-06 23:40:09 -0500 (Wed, 06 Feb 2002) | 2 lines
+
+add the license to the tree
+
+------------------------------------------------------------------------
+r2 | matt | 2002-02-06 23:28:09 -0500 (Wed, 06 Feb 2002) | 2 lines
+
+remove annoying swap file
+
+------------------------------------------------------------------------
+r1 | matt | 2002-02-06 23:27:16 -0500 (Wed, 06 Feb 2002) | 2 lines
+
+Initial revision
+
+------------------------------------------------------------------------

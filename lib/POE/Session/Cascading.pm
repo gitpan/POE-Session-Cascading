@@ -1,4 +1,4 @@
-#$Header: /cvsroot/POE-Session-Cascading/lib/POE/Session/Cascading.pm,v 1.14 2002/08/18 17:50:17 sungo Exp $
+#$Header: /home/sungo/src/sungo/POE-Session-Cascading/lib/POE/Session/Cascading.pm,v 1.14 2002/08/18 17:50:17 sungo Exp $
 
 # DOCUMENTATION #{{{
 
@@ -12,7 +12,7 @@ Matt Cashner (eek+cpan@eekeek.org)
 
 =head1 DATE
 
-$Date: 2002/08/18 17:50:17 $
+$Date: 2004-04-24 17:03:13 -0400 (Sat, 24 Apr 2004) $
 
 =head1 SYNOPSIS
 
@@ -100,7 +100,9 @@ use strict;
 
 use Carp;
 use POE::Kernel;
-use vars qw($VERSION %STACK %STACKINFO);
+use vars qw(%STACK %STACKINFO);
+
+our $VERSION = '1.'.sprintf "%04d", (qw($Rev: 225 $))[1];
 
 # allow users to set the debug flag. also useful for the test suite
 BEGIN {

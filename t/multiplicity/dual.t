@@ -51,7 +51,7 @@ my $sess2 = POE::Session::Cascading->new(
 POE::Session->create(
     inline_states => {
         _start => sub { $_[KERNEL]->post('multitest1','state1'); $_[KERNEL]->delay('nuke',3); },
-        nuke => sub { exit(0) },
+        nuke => sub { $_[KERNEL]->_data_ses_free($sess1); $_[KERNEL]->_data_ses_free($sess2);},
     }
 );
 

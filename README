@@ -5,7 +5,7 @@ AUTHOR
     Matt Cashner (eek+cpan@eekeek.org)
 
 DATE
-    $Date: 2002/05/18 03:28:52 $
+    $Date: 2004-04-24 13:55:11 -0400 (Sat, 24 Apr 2004) $
 
 SYNOPSIS
         POE::Session::Cascading->new(
