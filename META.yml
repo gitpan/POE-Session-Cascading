@@ -1,13 +1,15 @@
-# http://module-build.sourceforge.net/META-spec.html
-#XXXXXXX This is a prototype!!!  It will change in the future!!! XXXXX#
-name:         POE-Session-Cascading
-version:      1.0225
-version_from: lib/POE/Session/Cascading.pm
-installdirs:  site
-requires:
-    Carp:                          0
-    POE:                           .19
-    Test::More:                    0
-
+name: POE-Session-Cascading
+version: 1.03
+author: Matt Cashner (sungo@pobox.com)
+license: bsd
 distribution_type: module
-generated_by: ExtUtils::MakeMaker version 6.17
+tests: ./t/000-signature.t ./t/_internals/creation.t ./t/_internals/invoke_state.t ./t/_internals/swap.t ./t/api/basic.t ./t/api/data_propogation.t ./t/multiplicity/dual.t
+build_requires:
+  Test::More: 0
+requires:
+  POE: 0.19
+  Carp: 0
+no_index:
+  directory:
+    - inc
+generated_by: Module::Install version 0.39

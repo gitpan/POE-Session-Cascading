@@ -1,4 +1,4 @@
-#$Header: /home/sungo/src/sungo/POE-Session-Cascading/lib/POE/Session/Cascading.pm,v 1.14 2002/08/18 17:50:17 sungo Exp $
+# $Id: Cascading.pm 610 2005-12-07 06:58:36Z sungo $
 
 # DOCUMENTATION #{{{
 
@@ -12,7 +12,7 @@ Matt Cashner (eek+cpan@eekeek.org)
 
 =head1 DATE
 
-$Date: 2004-04-24 17:03:13 -0400 (Sat, 24 Apr 2004) $
+$Date: 2005-12-07 01:58:36 -0500 (Wed, 07 Dec 2005) $
 
 =head1 SYNOPSIS
 
@@ -102,7 +102,7 @@ use Carp;
 use POE::Kernel;
 use vars qw(%STACK %STACKINFO);
 
-our $VERSION = '1.'.sprintf "%04d", (qw($Rev: 225 $))[1];
+our $VERSION = '1.'.sprintf "%04d", (qw($Rev: 610 $))[1];
 
 # allow users to set the debug flag. also useful for the test suite
 BEGIN {
@@ -189,7 +189,6 @@ sub _invoke_state {
         
         print "Setting kernel alias to $self->{name}\n" if DEBUG;
         $POE::Kernel::poe_kernel->alias_set($self->{name});
-        $POE::Kernel::poe_kernel->delay('_ping',10);
         
     } elsif ($state eq '_stop') {
         # Shutting down. Delete the relevant stack.
@@ -203,10 +202,6 @@ sub _invoke_state {
         
         return $self->step(@{$etc});
         
-    } elsif ($state eq '_ping') {
-        # The ping state is used to keep the session alive.
-        $POE::Kernel::poe_kernel->delay('_ping',10);
-
     } else {
         # A normal event. Do we know this event? Does it belong to stack?
         if(defined $self->{info}->{$state}) {
@@ -241,6 +236,10 @@ sub step {
     }
 }
 # }}}
+
+sub ID {
+  $POE::Kernel::poe_kernel->ID_session_to_id(shift);
+}
 
 =head2 stop
 
@@ -343,31 +342,38 @@ sub _fail_msg {
 
 =back
 
-=head1 LICENSE AND COPYRIGHT
 
-Copyright (c) 2002, Matt Cashner 
+=head1 LICENSE
 
-Permission is hereby granted, free of charge, to any person obtaining 
-a copy of this software and associated documentation files (the 
-"Software"), to deal in the Software without restriction, including 
-without limitation the rights to use, copy, modify, merge, publish, 
-distribute, sublicense, and/or sell copies of the Software, and to 
-permit persons to whom the Software is furnished to do so, subject 
-to the following conditions:
+Copyright (c) 2002, Matt Cashner. All rights reserved.
 
-The above copyright notice and this permission notice shall be included 
-in all copies or substantial portions of the Software.
+Redistribution and use in source and binary forms, with or without
+modification, are permitted provided that the following conditions are
+met:
 
-THIS SOFTWARE IS PROVIDED BY THE AUTHOR ``AS IS'' AND ANY EXPRESS OR IMPLIED
-WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
-MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO
-EVENT SHALL THE AUTHOR BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
-SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
-PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS;
-OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
-WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR
-OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
-ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+=over 4
+
+=item * Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.  
+
+=item * Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.
+
+=item * Neither the name of Matt Cashner nor the names of its contributors may be used to endorse or promote products derived from this software without specific prior written permission.
+
+=back
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+"AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+(INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+=cut
 
 =cut
 

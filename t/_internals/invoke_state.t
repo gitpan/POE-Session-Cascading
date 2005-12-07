@@ -1,10 +1,10 @@
 # Test state invocation
 
-use Test::More tests => 10;
+use Test::More tests => 8;
 use warnings;
 use strict;
 
-local $SIG{__WARN__} = sub { $@ = shift; die $@; };
+$SIG{__WARN__} = sub { $@ = shift; die $@; };
 
 BEGIN { 
     use_ok('POE::Session::Cascading'); 
@@ -18,7 +18,7 @@ my $sess = POE::Session::Cascading->new(
                 name => 'test2',
                 events => [
                     'state1' => sub { my %args = @_; warn "state1" if shift @{$args{ARGS}} == 1; },
-                    'state2' => sub { my %args = @_; warn 'state2' if shift @{$args{ARGS}} == 2; $args{SESSION}->stop; },
+                    'state2' => sub { my %args = @_; warn "state2"  if shift @{$args{ARGS}} == 2; $args{SESSION}->stop() },
                 ]
            );
 
@@ -32,13 +32,6 @@ like($@, qr/Assertion \(State name\) failed!/, '_invoke_state() asserts that the
 $POE::Kernel::poe_kernel->catch('alias_set');
 eval { POE::Session::Cascading::_invoke_state($sess,$sess,'_start') };
 like($@, qr/Caught alias_set/, '$poe_kernel->alias_set call in _start');
-
-$POE::Kernel::poe_kernel->catch('delay');
-eval { POE::Session::Cascading::_invoke_state($sess,$sess,'_start') };
-like($@, qr/Caught delay/, '$poe_kernel->delay call in _start');
-
-eval { POE::Session::Cascading::_invoke_state($sess,$sess,'_ping') };
-like($@, qr/Caught delay/, '$poe_kernel->delay call in _ping');
 
 $POE::Kernel::poe_kernel->catch('post');
 eval { POE::Session::Cascading::_invoke_state($sess,$sess,'state1'); };
@@ -55,3 +48,9 @@ eval { POE::Session::Cascading::_invoke_state($sess,$sess,'_stop'); };
 ok(!defined $POE::Session::Cascading::STACK{'test2'},'deletion of stack in _stop');
 
 
+sub _launch_session {
+
+}
+
+
+# sungo // vim: ts=4 sw=4 et

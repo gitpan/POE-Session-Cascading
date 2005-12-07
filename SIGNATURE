@@ -1,0 +1,48 @@
+This file contains message digests of all files listed in MANIFEST,
+signed via the Module::Signature module, version 0.44.
+
+To verify the content in this distribution, first make sure you have
+Module::Signature installed, then type:
+
+    % cpansign -v
+
+It will check each file's integrity, as well as the signature's
+validity.  If "==> Signature verified OK! <==" is not displayed,
+the distribution may already have been compromised, and you should
+not run its Makefile.PL or Build.PL.
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+SHA1 c29e333ba5ce86d494b3f2eb42b66cc1fbfaa195 INSTALL
+SHA1 34eccaee7c2e18acdb5430900269553911536ccf LICENSE
+SHA1 7f21b26306a706f9ea3c50c33db2cfaf86d56624 MANIFEST
+SHA1 db6e5aeea3d888e7bf7c51c9739d457b676e01d4 MANIFEST.SKIP
+SHA1 80d401f789eb8e4fb4051bce1e1283ac3a8f2ad6 META.yml
+SHA1 337878e93867da11ed4bcbcacdc060cc66f97bdc Makefile.PL
+SHA1 075991310290013ea5de192bdabc763724b1e9cf README
+SHA1 efabfbef3dc29962ea5170552034abe934911df9 VERSION
+SHA1 561403318cf2b5a384f4ca0d958b89e428755f26 inc/Module/Install.pm
+SHA1 75f254ea99f186276c39556e797843817398f286 inc/Module/Install/Base.pm
+SHA1 6e9c7346d03ff7c276c7d8121e8b2ffcd3fe6f53 inc/Module/Install/Can.pm
+SHA1 205bf27a00ec4d4bc8e2a000c3f489e4b1d1d65f inc/Module/Install/Fetch.pm
+SHA1 7e6295103465cf72061bda1381409404458ebfa1 inc/Module/Install/Makefile.pm
+SHA1 62d05c180d05608b611b1dfc0414149859adf188 inc/Module/Install/Metadata.pm
+SHA1 d7f76178cc2fb48555b7df29168aa127ee6aa3e3 inc/Module/Install/Win32.pm
+SHA1 83fac04426bd4db6f99baa59230e7be5259fc843 inc/Module/Install/WriteAll.pm
+SHA1 d340896630384de9dd3d1b64102b5c11bf4cc44d lib/POE/Session/Cascading.pm
+SHA1 f7fb46f3447c3daab2343eaea5acd45868009c6f t/000-signature.t
+SHA1 65f5923146df40ad7e3342058a1c3b495e3eb40f t/MockObject.pm
+SHA1 e94905305f45578d684899d83376974411471dd5 t/_internals/creation.t
+SHA1 83b2fb1a6ba2b21ca873583fa56dd1642484583c t/_internals/invoke_state.t
+SHA1 f82fdad57de105b9b013bb2417f0353acb37fba7 t/_internals/swap.t
+SHA1 2f2d3b667bffbb09852d644c4b88bafccb7f7eb1 t/api/basic.t
+SHA1 8b5cf9e19e05a0ca721792a4520512837978f8da t/api/data_propogation.t
+SHA1 5fd2f061cfc738aecfd002abba983e1ccf359e5a t/multiplicity/dual.t
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.4.2 (GNU/Linux)
+
+iD8DBQFDlogh5xrCYZCVAioRAvQdAJ0deDmvCBUbJToaw3UkusN1la5sugCfapZw
+/JBAWR+Wh54b+Ypw7tgioZg=
+=zKmJ
+-----END PGP SIGNATURE-----
