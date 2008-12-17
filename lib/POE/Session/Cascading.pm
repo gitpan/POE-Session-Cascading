@@ -1,4 +1,5 @@
-# $Id: Cascading.pm 610 2005-12-07 06:58:36Z sungo $
+
+package POE::Session::Cascading;
 
 # DOCUMENTATION #{{{
 
@@ -8,11 +9,11 @@ POE::Session::Cascading - Stack-like POE Sessions
 
 =head1 AUTHOR
 
-Matt Cashner (eek+cpan@eekeek.org)
+Matt Cashner (sungo@pobox.com)
 
 =head1 DATE
 
-$Date: 2005-12-07 01:58:36 -0500 (Wed, 07 Dec 2005) $
+$Date$
 
 =head1 SYNOPSIS
 
@@ -93,7 +94,6 @@ to the state, including any data passed from the previous state..
 
 #}}}
 
-package POE::Session::Cascading;
 
 use warnings;
 use strict;
@@ -102,18 +102,37 @@ use Carp;
 use POE::Kernel;
 use vars qw(%STACK %STACKINFO);
 
-our $VERSION = '1.'.sprintf "%04d", (qw($Rev: 610 $))[1];
+our $VERSION = '2.01';
 
-# allow users to set the debug flag. also useful for the test suite
+
+=begin devel
+
+=head2 CSC_STOP
+
+=head2 CSC_OK
+
+Internal constants to provide flow control
+
+
+=cut
+
+sub CSC_STOP () { 0 }
+sub CSC_OK () { 1 }
+
+
+=head2 DEBUG
+
+Allow users to configure our debug prints. Useful for the test suite
+
+=end devel
+
+=cut
+
 BEGIN {
     unless(defined &POE::Session::Cascading::DEBUG) {
         *POE::Session::Cascading::DEBUG = sub { 0 } ;
     }
 }               
-
-# Constants
-sub CSC_STOP () { 0 }
-sub CSC_OK () { 1 }
 
 
 # sub new {{{
@@ -219,8 +238,15 @@ sub _invoke_state {
 
 # sub step {{{
 
-# Take a single step in the stack. 
-# If appropriate, increment the counter and post the call to take the next step.
+=begin devel
+
+=head2 step
+
+Take a single step in the stack. 
+If appropriate, increment the counter and post the call to take the next step.
+
+=cut
+
 sub step {
     my $self = shift;
     my $itr = shift;
@@ -236,6 +262,14 @@ sub step {
     }
 }
 # }}}
+
+=head2 ID
+
+For compatibility with POE's native sessions.
+
+=end devel
+
+=cut
 
 sub ID {
   $POE::Kernel::poe_kernel->ID_session_to_id(shift);
@@ -304,6 +338,13 @@ sub swap {
     return 1;
 }
 
+=begin devel
+
+=head2 DESTROY
+
+Destructor. Clear out the stack for the given session
+
+=cut
 
 sub DESTROY {
     my $self = shift; 
@@ -312,8 +353,13 @@ sub DESTROY {
     delete $STACKINFO{$self->{name}};
 }
 
-# um, this is assert, like in C. 
-# if the condition is false, yell.
+=head2 assert
+
+um, this is assert, like in C. 
+if the condition is false, yell.
+
+=cut
+
 sub assert ($;$) {
     unless($_[0]) {
         Carp::confess( _fail_msg($_[1]) );
@@ -330,6 +376,9 @@ sub _fail_msg {
     return $msg;
 }     
 
+1;
+__END__
+
 # MORE DOCS {{{
 
 =head1 BUGS AND KNOWN ISSUES
@@ -342,6 +391,9 @@ sub _fail_msg {
 
 =back
 
+=head1 AUTHOR
+
+Matt Cashner (sungo@pobox.com)
 
 =head1 LICENSE
 
@@ -375,8 +427,6 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 =cut
 
-=cut
-
 #}}}
 
-1;
+# sungo // vim: ts=4 sw=4 et

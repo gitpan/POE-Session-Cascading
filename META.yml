@@ -1,15 +1,20 @@
-name: POE-Session-Cascading
-version: 1.03
-author: Matt Cashner (sungo@pobox.com)
-license: bsd
-distribution_type: module
-tests: ./t/000-signature.t ./t/_internals/creation.t ./t/_internals/invoke_state.t ./t/_internals/swap.t ./t/api/basic.t ./t/api/data_propogation.t ./t/multiplicity/dual.t
+---
+author:
+  - 'Matt Cashner (sungo@pobox.com)'
 build_requires:
   Test::More: 0
-requires:
-  POE: 0.19
-  Carp: 0
+distribution_type: module
+generated_by: 'Module::Install version 0.77'
+license: bsd
+meta-spec:
+  url: http://module-build.sourceforge.net/META-spec-v1.4.html
+  version: 1.4
+name: POE-Session-Cascading
 no_index:
   directory:
     - inc
-generated_by: Module::Install version 0.39
+    - t
+requires:
+  Carp: 0
+  POE: 0.19
+version: 1.04

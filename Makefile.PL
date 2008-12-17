@@ -1,4 +1,3 @@
-# $Id: Makefile.PL 606 2005-12-07 06:46:38Z sungo $
 
 use inc::Module::Install;
 use File::Find;
@@ -19,6 +18,5 @@ requires        ('Carp');
 build_requires  ('Test::More');
 
 tests           ($tests);
-sign            (1);
 
 WriteAll();
